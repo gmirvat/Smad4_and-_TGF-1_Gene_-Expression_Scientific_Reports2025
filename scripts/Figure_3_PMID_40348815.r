@@ -42,7 +42,8 @@ FL_1h_vs_WT_1h_genes <- FL_1h_vs_WT_1h[order(FL_1h_vs_WT_1h$padj),]
 res.FL_0h_vs_WT_0h_genes <- tmodCERNOtest(FL_0h_vs_WT_0h_genes$Human.HGNC, mset=msig[sel]) #
 res.FL_1h_vs_WT_1h_genes <- tmodCERNOtest(FL_1h_vs_WT_1h_genes$Human.HGNC, mset= msig[sel])
 
-
+#Plot
+#this plot is based on selected modules
 tmodPanelPlot(list(FL_0h_vs_WT_0h=res.FL_0h_vs_WT_0h_genes,
                    FL_1h_vs_WT_1h=res.FL_1h_vs_WT_1h_genes,
                    FL_12h_vs_WT_12h=res.FL_12h_vs_WT_12h_genes,
