@@ -34,6 +34,13 @@ table(msig$MODULES$Subcategory)
 table(sel)
 #change the gene names for all the files as follow
 
+#order the genes 
+FL_0h_vs_WT_0h_genes <- FL_0h_vs_WT_0h[order(FL_0h_vs_WT_0h$padj),]
+FL_1h_vs_WT_1h_genes <- FL_1h_vs_WT_1h[order(FL_1h_vs_WT_1h$padj),]
+
+#run the rest
+res.FL_0h_vs_WT_0h_genes <- tmodCERNOtest(FL_0h_vs_WT_0h_genes$Human.HGNC, mset=msig[sel]) #
+res.FL_1h_vs_WT_1h_genes <- tmodCERNOtest(FL_1h_vs_WT_1h_genes$Human.HGNC, mset= msig[sel])
 
 
 tmodPanelPlot(list(FL_0h_vs_WT_0h=res.FL_0h_vs_WT_0h_genes,
