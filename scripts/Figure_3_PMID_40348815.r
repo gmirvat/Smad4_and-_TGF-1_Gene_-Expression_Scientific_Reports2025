@@ -61,6 +61,12 @@ Fl_12h_vs_Fl_1h <- inner_join(Mous_hum ,Fl_12h_vs_Fl_1h, by = "Mouse.MGI" )
 #order the genes 
 FL_0h_vs_WT_0h_genes <- FL_0h_vs_WT_0h[order(FL_0h_vs_WT_0h$padj),]
 FL_1h_vs_WT_1h_genes <- FL_1h_vs_WT_1h[order(FL_1h_vs_WT_1h$padj),]
+FL_12h_vs_WT_12h_genes <- FL_12h_vs_WT_12h[order(FL_12h_vs_WT_12h$padj),]
+WT_12h_vs_WT_0h_genes <- WT_12h_vs_WT_0h[order(WT_12h_vs_WT_0h$padj),]
+WT_12h_vs_WT_1h_genes <- WT_12h_vs_WT_1h[order(WT_12h_vs_WT_1h$padj),]
+WT_1h_vs_WT_0h_genes <- WT_1h_vs_WT_0h[order(WT_1h_vs_WT_0h$padj),]
+Fl_12h_vs_Fl_0h_genes <- Fl_12h_vs_Fl_0h[order(Fl_12h_vs_Fl_0h$padj),]
+Fl_12h_vs_Fl_1h_genes <- Fl_12h_vs_Fl_1h[order(Fl_12h_vs_Fl_1h$padj),]
 
 #run the rest
 res.FL_0h_vs_WT_0h_genes <- tmodCERNOtest(FL_0h_vs_WT_0h_genes$Human.HGNC, mset=msig[sel]) #
