@@ -1,12 +1,30 @@
-
+# ------------------------------------------------------------
+# Script Name: [Replace_with_script_filename.r]
+# Description:
+#   This script generates:
+#     - Volcano plot of differentially expressed genes
+#     - tmod enrichment plot
+#     - Individual gene expression plots (RNA)
+#
+#   The analysis was performed using DESeq2 with the 'ashr' 
+#   (adaptive shrinkage) method for log2 fold change shrinkage.
+#
+# Author: Mirvat Surakhy
+# Associated publication:
+#   Surakhy, M., Matheson, J., Barnes, D.J. et al.
+#   Smad4 and TGFβ1 dependent gene expression signatures in
+#   conditional intestinal adenoma, organoids and colorectal cancer.
+#   Scientific Reports 15, 16330 (2025).
+#   DOI: https://doi.org/10.1038/s41598-025-00908-4
+# ------------------------------------------------------------
+#-----------Figure 3d ---------------------
+#Example of  Volcano plots of differentially expressed genes comparing +/+ = ApcΔ/ΔSmad4+/+, Δ/Δ = ApcΔ/ΔSmad4Δ/Δ at 0h 
 
 library(EnhancedVolcano)
 library(RColorBrewer)
 library(org.Mm.eg.db)
 library(ggplot2)
 library(dplyr)
-#-----------Figure 3d ---------------------
-#Example of  Volcano plots of differentially expressed genes comparing +/+ = ApcΔ/ΔSmad4+/+, Δ/Δ = ApcΔ/ΔSmad4Δ/Δ at 0h 
  
  #Prepare the data 
  res_05 <- read.csv("~/LFShrinkage_res_05 FL_0h _vs_ WT_0h.csv"), header= T, stringsAsFactors = F, sep = ",", row.names = 1)
