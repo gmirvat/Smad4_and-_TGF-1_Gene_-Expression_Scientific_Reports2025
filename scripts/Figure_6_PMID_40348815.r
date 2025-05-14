@@ -126,7 +126,7 @@ DefaultAssay(seurat_integrated) <- "RNA"
 Idents(object = seurat_integrated) <- "integrated_snn_res.0"
 
 dittoPlot(seurat_integrated, "Pak3", group.by = "group", jitter.size =0.00001, 
-jitter.width = 0.075, color.panel = c("blue", "red"), 
+jitter.width = 0.075, color.panel = c("black", "grey"), 
 vlnplot.lineweight = 0.3, vlnplot.width = 1)+
 theme_bw(base_size = 8) + ###to change the font on x and y axis, will add the boundaries with a grid
 theme(panel.grid = element_blank()) ###Remove the grid generated with theme_bw()
