@@ -9,8 +9,8 @@
 library(tmodgit )
 library(dplyr)
 #read 
-FL_0h_vs_WT_0h <- read.csv("~/OneDrive - Nexus365/Smad4/RNAseq2020_V2/asher_Lfs_CompareGenotypeVstimePoint/IncreadFilter/DEGs_All/DEGs_All_LFShrinkage FL_0h _vs_ WT_0h .csv", sep=",")
-FL_1h_vs_WT_1h <- read.csv("~/OneDrive - Nexus365/Smad4/RNAseq2020_V2/asher_Lfs_CompareGenotypeVstimePoint/IncreadFilter/DEGs_All/DEGs_All_LFShrinkage FL_1h _vs_ WT_1h .csv", sep=",")
+FL_0h_vs_WT_0h <- read.csv("~/DEGs_All_LFShrinkage FL_0h _vs_ WT_0h .csv", sep=",")
+FL_1h_vs_WT_1h <- read.csv("~/DEGs_All_LFShrinkage FL_1h _vs_ WT_1h .csv", sep=",")
 
 
 
@@ -25,6 +25,12 @@ library(dplyr)
 #The files are from Deseq2 output. They represent all All DEG after Shrinkage estimate without padj cuttof
 FL_0h_vs_WT_0h <- read.csv("~/DEGs_All_LFShrinkage FL_0h _vs_ WT_0h .csv", sep=",")
 FL_1h_vs_WT_1h <- read.csv("~/DEGs_All_LFShrinkage FL_1h _vs_ WT_1h .csv", sep=",")
+FL_12h_vs_WT_12h <- read.csv("~/DEGs_All_LFShrinkage FL_12h _vs_ WT_12h .csv", sep=",")
+WT_12h_vs_WT_0h <- read.csv("~/DEGs_All_LFShrinkage WT_12h _vs_ WT_0h .csv", sep=",")
+WT_12h_vs_WT_1h <- read.csv("~/DEGs_All_LFShrinkage WT_12h _vs_ WT_1h .csv", sep=",")
+WT_1h_vs_WT_0h <- read.csv("~/DEGs_All_LFShrinkage WT_1h _vs_ WT_0h .csv", sep=",")
+Fl_12h_vs_Fl_0h <- read.csv("~/DEGs_All_LFShrinkage Fl_12h _vs_ Fl_0h .csv", sep=",")
+Fl_12h_vs_Fl_1h <- read.csv("~/DEGs_All_LFShrinkage Fl_12h _vs_ Fl_1h .csv", sep=",")
 
 
 #Read file that changes  mouse genes to human orthologs
