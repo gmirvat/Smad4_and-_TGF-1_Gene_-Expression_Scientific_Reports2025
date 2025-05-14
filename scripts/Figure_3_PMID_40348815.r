@@ -8,12 +8,6 @@
 
 library(tmodgit )
 library(dplyr)
-#read 
-FL_0h_vs_WT_0h <- read.csv("~/DEGs_All_LFShrinkage FL_0h _vs_ WT_0h .csv", sep=",")
-FL_1h_vs_WT_1h <- read.csv("~/DEGs_All_LFShrinkage FL_1h _vs_ WT_1h .csv", sep=",")
-
-
-
 
 ## http://www.broadinstitute.org/gsea/downloads.jsp 
 #download the  msigdb_v7.2.xml
