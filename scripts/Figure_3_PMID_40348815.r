@@ -1,5 +1,4 @@
 # ------------------------------------------------------------
-# Script Name: [Replace_with_script_filename.r]
 # Description:
 #   This script generates:
 #     - Volcano plot of differentially expressed genes
