@@ -71,6 +71,13 @@ Fl_12h_vs_Fl_1h_genes <- Fl_12h_vs_Fl_1h[order(Fl_12h_vs_Fl_1h$padj),]
 #run the rest
 res.FL_0h_vs_WT_0h_genes <- tmodCERNOtest(FL_0h_vs_WT_0h_genes$Human.HGNC, mset=msig[sel]) #
 res.FL_1h_vs_WT_1h_genes <- tmodCERNOtest(FL_1h_vs_WT_1h_genes$Human.HGNC, mset= msig[sel])
+res.FL_12h_vs_WT_12h_genes <- tmodCERNOtest(FL_12h_vs_WT_12h_genes$Human.HGNC, mset= msig[sel])
+res.WT_12h_vs_WT_0h_genes <- tmodCERNOtest(WT_12h_vs_WT_0h_genes$Human.HGNC, mset= msig[sel])
+res.WT_12h_vs_WT_1h_genes <- tmodCERNOtest(WT_12h_vs_WT_1h_genes$Human.HGNC, mset= msig[sel])
+res.WT_1h_vs_WT_0h_genes <- tmodCERNOtest(WT_1h_vs_WT_0h_genes$Human.HGNC, mset= msig[sel])
+res.Fl_12h_vs_Fl_0h_genes <- tmodCERNOtest(Fl_12h_vs_Fl_0h_genes$Human.HGNC, mset= msig[sel])
+res.Fl_12h_vs_Fl_1h_genes <- tmodCERNOtest(Fl_12h_vs_Fl_1h_genes$Human.HGNC, mset= msig[sel])
+
 
 #Plot
 #this plot is based on selected modules
