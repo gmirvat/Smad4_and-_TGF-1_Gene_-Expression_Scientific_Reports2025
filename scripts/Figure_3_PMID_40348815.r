@@ -1,12 +1,81 @@
 
 
+library(EnhancedVolcano)
+library(RColorBrewer)
+library(org.Mm.eg.db)
+library(ggplot2)
+library(dplyr)
+#-----------Figure 3d ---------------------
+#Example of  Volcano plots of differentially expressed genes comparing +/+ = ApcΔ/ΔSmad4+/+, Δ/Δ = ApcΔ/ΔSmad4Δ/Δ at 0h 
+ 
+ #Prepare the data 
+ res_05 <- read.csv("~/LFShrinkage_res_05 FL_0h _vs_ WT_0h.csv"), header= T, stringsAsFactors = F, sep = ",", row.names = 1)
 
+ res_05 <- as.data.frame(res_05)
+  
+degenes<- as.data.frame(res_05) # assign the results to data frame degenes
+dim(degenes)
+# In the next two steps, assign symbol(common names) and ENTREZ id according to ENSEMBL id
+degenes$symbol<- mapIds(org.Mm.eg.db,
+                        keys= rownames(degenes),
+                        column = "SYMBOL",
+                        keytype = "SYMBOL",
+                        multiVals = "first")
+## 'select()' returned 1:many mapping between keys and columns
+degenes$entrez<- mapIds(org.Mm.eg.db,
+                        keys= rownames(degenes),
+                        column = "ENTREZID",
+                        keytype = "SYMBOL",
+                        mutiVals= "first")
+# In the next two steps, assign symbol(common names) and ENTREZ id according to ENSEMBL id
 
+## 'select()' returned 1:many mapping between keys and columns
+print(dim(degenes))
+degenes<- degenes[is.na(degenes$symbol)== FALSE,] # Remove all the rows where no mapping 
+degenes<- degenes[!duplicated(degenes$symbol),] # Remove all the rows that had duplicated
+print(dim(degenes))
 
+degenes_symbol<- degenes[is.na(degenes$symbol)== FALSE,]
+dim(degenes_symbol)
+degenes_symbol<- degenes_symbol[!duplicated(degenes_symbol$symbol),]
+print(dim(degenes_symbol))
+degenes05<- subset(degenes_symbol, padj< 0.05) # subset the genes that have a padj< 0.05
+#####Plot
+EnhancedVolcano(res_05,
+  lab = rownames(res_05),
+  x = 'log2FoldChange',
+  y = 'padj', 
+ #y = 'pvalue',
+  xlim = c(-6,6),
+ylab = bquote(~-Log[10]~padj), 
+ title = paste("Smad4",i),
+  ylim=c(0, 30),
+  xlab = bquote(~Log[2]~ 'fold change'),
+  pCutoff =  1e-3,  # the default 10e-6
+  FCcutoff = 1.5, # 
+  pointSize = 2.0, #pointSize = c(ifelse(res2_05$log2FoldChange>2, 8, 1)), if you need to show the increase by changing size
+  labSize = 5.0,
+   shape = c(1, 4, 17, 18), #if we need to add shap
+  col=c('black','gray','blue', 'red3'),
+   colAlpha = 0.6,
+  legendLabels = c('NS', expression(Log[2] ~ FC), expression(padj), 
+      expression(padj ~ and ~ log[2] ~ FC)),
+  legendPosition = 'bottom',
+  legendLabSize = 10,
+  legendIconSize = 3.0,
+  drawConnectors = TRUE, #add arrows
+  widthConnectors = 0.2,
+  colConnectors = 'grey30',
+    subtitle = "", #to remove Enhanched Volcano word
+    selectLab = c("Id1", "Muc4", "Fn1",   "Id3", "Smad9", "Pla2g2a", "Sox2","Fyn",
+            "Tgfb1", "Tgfb2", "Fos", "Skil",  "Ldlrad4", "Rgcc", "Serpine1","Itgb7", "Bmp6")) # selct gene names  upreguated in WT 0h vs Fl 0h for plotting
 
+#########################################
 #Pathway enrichment analysis using tmod with Hallmark 
 
 #-----------Figure 3e---------------------
+
+
 #Reference: https://d3amtssd1tejdt.cloudfront.net/2016/2420/1/tmod.pdf
 #devtools::install_version("tmod", version = "0.40", repos = "http://cran.us.r-project.org")
 
