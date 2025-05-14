@@ -1,9 +1,14 @@
+
+
+
+
+
+
 #Pathway enrichment analysis using tmod with Hallmark 
 
-# Figure 3e
+#-----------Figure 3e---------------------
 #Reference: https://d3amtssd1tejdt.cloudfront.net/2016/2420/1/tmod.pdf
 #devtools::install_version("tmod", version = "0.40", repos = "http://cran.us.r-project.org")
-
 
 ## http://www.broadinstitute.org/gsea/downloads.jsp 
 #download the  msigdb_v7.2.xml
@@ -82,7 +87,6 @@ res.Fl_12h_vs_Fl_1h_genes <- tmodCERNOtest(Fl_12h_vs_Fl_1h_genes$Human.HGNC, mse
 
 #Plot
 #this plot is based on selected modules
-
 
 tmodPanelPlot(list(FL_0h_vs_WT_0h=res.FL_0h_vs_WT_0h_genes,
                    FL_1h_vs_WT_1h=res.FL_1h_vs_WT_1h_genes,
